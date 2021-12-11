@@ -1,0 +1,147 @@
+:root {
+	--spacing: 3rem;
+	--color-text: #AEAEAE;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #E2DDFF;
+	color: var(--color-text);
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card {
+	border-radius: var(--spacing);
+	background-color: #fff;
+	box-shadow: 2rem 1.5rem 4rem rgba(54, 48, 116, 0.3);
+}
+
+button {
+	width: 2rem;
+	height: 2rem;
+	padding: 0.5rem;
+	border-radius: 60%;
+	border: none;
+	background-color: #fff;
+}
+
+/******
+ ALBUM
+******/
+
+#album {
+	height: 25rem;
+	width: 43rem;
+	display: flex;
+	padding: var(--spacing);
+}
+
+#info {
+	margin-left: var(--spacing);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#song_name {
+	color: #86748D;
+}
+
+#artist, #album_name {
+	color: #BEB7C0;
+}
+
+#user_functions {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+}
+
+/*******
+ Player
+*******/
+
+#player {
+	max-width: 55rem;
+	max-height: 20rem;
+}
+
+.player-container {
+	padding: var(--spacing);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.controls {
+	display:flex;
+	justify-content: space-between;
+	width: 60%;
+}
+
+#play-pause {
+	height: 4rem;
+	width: 4rem;
+}
+
+#forward, #backward {
+	height: 2.5rem;
+	width: 2.5rem;
+}
+
+.controls__mid {
+	position: relative;
+	top: -1rem;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+	place-items: center;
+
+}
+
+.controls__mid button {
+	background: linear-gradient(159.16deg, #917CE4 26.46%, rgba(63, 45, 137, 0) 116.55%);
+}
+
+.controls__left, .controls__right {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+
+.seek {
+	margin: 2rem 0 1rem 0;
+	width: 70%;
+	position: relative;
+	--currentTime: '00:00';
+	--duration: '00:00';
+}
+
+#slider {
+	width: 100%;
+	color: purple;
+}
+
+.seek::before {
+	content: var(--currentTime);
+	position: absolute;
+	left: 0;
+	bottom: -1.5rem;
+}
+
+.seek::after {
+	content: var(--duration);
+	position: absolute;
+	right: 0;
+	bottom: -1.5rem;
+}

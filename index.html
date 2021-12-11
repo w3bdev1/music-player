@@ -5,18 +5,69 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="style.css">
 		<script src="app.js" defer></script>
-		<title>Vanilla Music Player</title>
+		<title>Music Player</title>
 	</head>
 	<body>
-		<div class='album'>
-		</div>
+		<div id='album' class='card'>
+			<img class='depth' id='album_art' src='./assets/album_art.png' alt='purple_haze_album_art'>
+			<div id='info'>
+				<p id='player_state'>Paused</p>
 
-		<div class='player'>
-			<audio controls id='audio' src='./assets/Jimi+Hendrix+Purple+Haze.m4a'></audio>
-            <button id="play">PLAY/PAUSE</button>
-			<div class='seek'>
-				<input id='slider' type='range'>
+				<div id='song_details'>
+					<h3 id='song_name'>Purple Haze</h3>
+					<h4 id='artist'>Jimi Hendrix</h4>
+					<p id='album_name'>Woodstock</p>
+				</div>
+
+				<div id='user_functions'>
+					<button>
+						<img src='./icons/ic_like.svg'>
+					</button>
+					<button>
+						<img src='./icons/ic_add.svg'>
+					</button>
+					<button>
+						<img src='./icons/ic_share.svg'>
+					</button>
+				</div>
 			</div>
 		</div>
+		<div id='player' class='card'>
+			<div class='player-container'>
+				<div class='controls'>
+					<div class='controls__left'>
+						<button>
+							<img src='./icons/ic_shuffle.svg'/>
+						</button>
+						<button>
+							<img src='./icons/ic_repeat1.svg'/>
+						</button>
+					</div>
+					<div class='controls__mid'>
+						<button id="backward">
+							<img src='./icons/ic_backward.svg'/>
+						</button>
+						<button id="play-pause">
+							<img id='play-pause__img' src='./icons/ic_play.svg'/>
+						</button>
+						<button id="forward">
+							<img src='./icons/ic_forward.svg'/>
+						</button>
+					</div>
+					<div class='controls__right'>
+						<button>
+							<img src='./icons/ic_repeat2.svg'/>
+						</button>
+						<button>
+							<img src='./icons/ic_eqlz.svg'/>
+						</button>
+					</div>
+				</div>
+				<div class='seek'>
+					<input id='slider' type='range' step='any'>
+				</div>
+			</div>
+		</div>
+		<audio controls id='audio' src='./assets/Jimi+Hendrix+Purple+Haze.m4a'></audio>
 	</body>
 </html>
