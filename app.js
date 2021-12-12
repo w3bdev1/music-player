@@ -5,7 +5,6 @@ const backwardBtn = document.getElementById('backward')
 const playPauseImage = document.getElementById('play-pause__img')
 const playerStateText = document.getElementById('player_state')
 const seekSlider = document.getElementById('slider')
-const playerCurrentTimeText = document.querySelector('.seek')
 
 // Initial state
 let isPlaying = false;
@@ -71,6 +70,11 @@ function backwardHandler() {
 function timeUpdateHandler() {
 	seekSlider.value = audioEl.currentTime
 	secondsToMS(audioEl.currentTime)
+
+	if (navigator.userAgent.indexOf("Chrome") > -1) {
+		const elapsedPercent = getElapsedTimePercent();
+		seekSlider.style.setProperty('background', `linear-gradient(90deg, hsla(259, 71%, 49%, 1), hsla(245, 77%, 69%, 1) 0% ${elapsedPercent}%, hsla(248, 11%, 88%, 1) ${elapsedPercent}% 100%)`)
+	}
 }
 
 // Utility Functions
@@ -81,7 +85,10 @@ function secondsToMS(secs) {
 	console.log(`${min}:${sec}`)
 }
 
+function getElapsedTimePercent() {
+	return audioEl.currentTime / audioEl.duration * 100
+}
+
 
 // TODO
 //		JS change pseudoelement value
-//		Style seek

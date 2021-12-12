@@ -1,6 +1,6 @@
 :root {
 	--spacing: 3rem;
-	--color-text: #AEAEAE;
+	--color-secondary: #AEAEAE;
 }
 
 * {
@@ -11,7 +11,7 @@
 
 body {
 	background-color: #E2DDFF;
-	color: var(--color-text);
+	color: var(--color-secondary);
 }
 
 img {
@@ -119,6 +119,10 @@ button {
 	gap: 1rem;
 }
 
+
+/******
+ Seek
+******/
 .seek {
 	margin: 2rem 0 1rem 0;
 	width: 70%;
@@ -129,9 +133,41 @@ button {
 
 #slider {
 	width: 100%;
-	color: purple;
+	appearance: none;
+	background: hsla(248, 11%, 88%, 1);
+	height:0.5rem;
+	border-radius: 1rem;
 }
 
+/*For Webkit*/
+#slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	height: 1.5rem;
+	width: 1.5rem;
+	border: #fff .3rem solid;
+	border-radius: 50%;
+	background: linear-gradient(rgba(93, 36, 214, 1), rgba(126, 116, 237, 1));
+	cursor: pointer;
+}
+
+/*For Mozilla*/
+#slider::-moz-range-thumb {
+	appearance: none;
+	height: 1rem;
+	width: 1rem;
+	border: #fff .25rem solid;
+	border-radius: 50%;
+	background: linear-gradient(rgba(93, 36, 214, 1), rgba(126, 116, 237, 1));
+	cursor: pointer;
+}
+
+#slider::-moz-range-progress {
+	border-radius: 1rem;
+	height: 100%;
+	background: linear-gradient(hsla(259, 71%, 49%, 1), hsla(245, 77%, 69%, 1));
+}
+
+/*Time Below Seek*/
 .seek::before {
 	content: var(--currentTime);
 	position: absolute;
