@@ -126,9 +126,6 @@ button {
 .seek {
 	margin: 2rem 0 1rem 0;
 	width: 70%;
-	position: relative;
-	--currentTime: '00:00';
-	--duration: '00:00';
 }
 
 #slider {
@@ -168,16 +165,7 @@ button {
 }
 
 /*Time Below Seek*/
-.seek::before {
-	content: var(--currentTime);
-	position: absolute;
-	left: 0;
-	bottom: -1.5rem;
-}
-
-.seek::after {
-	content: var(--duration);
-	position: absolute;
-	right: 0;
-	bottom: -1.5rem;
+.timestamps {
+	display: flex;
+	justify-content: space-between;
 }

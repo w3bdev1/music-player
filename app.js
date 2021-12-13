@@ -5,6 +5,8 @@ const backwardBtn = document.getElementById('backward')
 const playPauseImage = document.getElementById('play-pause__img')
 const playerStateText = document.getElementById('player_state')
 const seekSlider = document.getElementById('slider')
+const currentTimeStamp = document.getElementById('current-time')
+const totalTimeStamp = document.getElementById('total-time')
 
 // Initial state
 let isPlaying = false;
@@ -14,6 +16,7 @@ seekSlider.value = 0
 
 audioEl.addEventListener('loadedmetadata', () => {
 	seekSlider.max = audioEl.duration
+	totalTimeStamp.innerText = secondsToMS(audioEl.duration)
 })
 
 audioEl.addEventListener('timeupdate', timeUpdateHandler)
@@ -69,7 +72,7 @@ function backwardHandler() {
 
 function timeUpdateHandler() {
 	seekSlider.value = audioEl.currentTime
-	secondsToMS(audioEl.currentTime)
+	currentTimeStamp.innerText = secondsToMS(audioEl.currentTime)
 
 	if (navigator.userAgent.indexOf("Chrome") > -1) {
 		const elapsedPercent = getElapsedTimePercent();
@@ -79,16 +82,13 @@ function timeUpdateHandler() {
 
 // Utility Functions
 function secondsToMS(secs) {
-	const min = Math.floor(secs / 60);
-	const sec = Math.floor(secs - min*60);
-
-	console.log(`${min}:${sec}`)
+	let min = Math.floor(secs / 60);
+	let sec = Math.floor(secs - min*60);
+	min = min.toString().length > 1 ? min : `0${min}`
+	sec = sec.toString().length > 1 ? sec : `0${sec}`
+	return `${min}:${sec}`
 }
 
 function getElapsedTimePercent() {
 	return audioEl.currentTime / audioEl.duration * 100
 }
-
-
-// TODO
-//		JS change pseudoelement value
