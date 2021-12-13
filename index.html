@@ -8,74 +8,76 @@
 		<title>Music Player</title>
 	</head>
 	<body>
-		<div id='album' class='card'>
-			<div class='album_art_wrapper'>
-				<img class='depth' id='album_art' src='./assets/album_art.png' alt='purple_haze_album_art'>
-			</div>
-			<div id='info'>
-				<p id='player_state'>Paused</p>
+		<div class='container'>
+			<div id='album' class='card'>
+				<div class='album_art_wrapper'>
+					<img class='depth' id='album_art' src='./assets/album_art.png' alt='purple_haze_album_art'>
+				</div>
+				<div id='info'>
+					<p id='player_state'>Paused</p>
 
-				<div id='song_details'>
-					<h3 id='song_name'>Purple Haze</h3>
-					<h4 id='artist'>Jimi Hendrix</h4>
-					<p id='album_name'>Woodstock</p>
-				</div>
+					<div id='song_details'>
+						<p id='song_name'>Purple Haze</p>
+						<p id='artist'>Jimi Hendrix</p>
+						<p id='album_name'>Woodstock</p>
+					</div>
 
-				<div id='user_functions'>
-					<button>
-						<img src='./icons/ic_like.svg'>
-					</button>
-					<button>
-						<img src='./icons/ic_add.svg'>
-					</button>
-					<button>
-						<img src='./icons/ic_share.svg'>
-					</button>
+					<div id='user_functions'>
+						<button>
+							<img src='./icons/ic_like.svg'>
+						</button>
+						<button>
+							<img src='./icons/ic_add.svg'>
+						</button>
+						<button>
+							<img src='./icons/ic_share.svg'>
+						</button>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div id='player' class='card'>
-			<div class='player-container'>
-				<div class='controls'>
-					<div class='controls__left'>
-						<button>
-							<img src='./icons/ic_shuffle.svg'/>
-						</button>
-						<button>
-							<img src='./icons/ic_repeat1.svg'/>
-						</button>
-					</div>
-					<div class='controls__mid'>
-						<div class='btn-wrapper'>
-							<button id="backward" class="btn-shadow">
-								<img src='./icons/ic_backward.svg'/>
+			<div id='player' class='card'>
+				<div class='player-container'>
+					<div class='controls'>
+						<div class='controls__left'>
+							<button>
+								<img src='./icons/ic_shuffle.svg'/>
+							</button>
+							<button>
+								<img src='./icons/ic_repeat1.svg'/>
 							</button>
 						</div>
-						<div class='btn-wrapper'>
-							<button id="play-pause" class="btn-shadow">
-								<img id='play-pause__img' src='./icons/ic_play.svg'/>
-							</button>
+						<div class='controls__mid'>
+							<div class='btn-wrapper'>
+								<button id="backward" class="btn-shadow">
+									<img src='./icons/ic_backward.svg'/>
+								</button>
+							</div>
+							<div class='btn-wrapper'>
+								<button id="play-pause" class="btn-shadow">
+									<img id='play-pause__img' src='./icons/ic_play.svg'/>
+								</button>
+							</div>
+							<div class='btn-wrapper'>
+								<button id="forward" class="btn-shadow">
+									<img src='./icons/ic_forward.svg'/>
+								</button>
+							</div>
 						</div>
-						<div class='btn-wrapper'>
-							<button id="forward" class="btn-shadow">
-								<img src='./icons/ic_forward.svg'/>
+						<div class='controls__right'>
+							<button>
+								<img src='./icons/ic_repeat2.svg'/>
+							</button>
+							<button>
+								<img src='./icons/ic_eqlz.svg'/>
 							</button>
 						</div>
 					</div>
-					<div class='controls__right'>
-						<button>
-							<img src='./icons/ic_repeat2.svg'/>
-						</button>
-						<button>
-							<img src='./icons/ic_eqlz.svg'/>
-						</button>
-					</div>
-				</div>
-				<div class='seek'>
-					<input id='slider' type='range' step='any'>
-					<div class='timestamps'>
-						<p id='current-time'>00:00</p>
-						<p id='total-time'>00:00</p>
+					<div class='seek'>
+						<input id='slider' type='range' step='any'>
+						<div class='timestamps'>
+							<p id='current-time'>00:00</p>
+							<p id='total-time'>00:00</p>
+						</div>
 					</div>
 				</div>
 			</div>

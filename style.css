@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap');
+
 :root {
-	--spacing: 3rem;
+	--spacing: 2rem;
 	--color-secondary: #AEAEAE;
 }
 
@@ -12,10 +14,13 @@
 body {
 	background-color: #E2DDFF;
 	color: var(--color-secondary);
+	overflow: hidden;
+	font-family: Roboto, system-ui;
 }
 
 img {
 	max-width: 100%;
+	max-height: 100%;
 }
 
 .card {
@@ -47,8 +52,35 @@ button {
 		inset -10px -10px 30px #fff;
 }
 
+
+/***********
+ Container
+***********/
+.container {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+}
+
+/******
+ ALBUM
+******/
+
+#album {
+	--height: 20rem;
+	height: var(--height);
+	width: 41vw;
+	background-color: #F7F7F7;
+	display: flex;
+	padding: var(--spacing);
+	z-index: 2;
+	position: absolute;
+	top: calc(50vh - var(--height)/2);
+	left: 4rem;
+}
+
 .album_art_wrapper {
-	padding: 1rem;
+	padding: 0.7rem;
 	border-radius: 10%;
 	background: #F8F8F8;
 	box-shadow:
@@ -60,20 +92,8 @@ button {
 }
 
 #album_art {
-	height: 17rem;
+	height: calc(var(--height) - 5rem);
 	filter: drop-shadow(4px 4px 4px #806B8C);
-}
-
-/******
- ALBUM
-******/
-
-#album {
-	height: 25rem;
-	width: 43rem;
-	color: #F7F7F7;
-	display: flex;
-	padding: var(--spacing);
 }
 
 #info {
@@ -84,11 +104,18 @@ button {
 }
 
 #song_name {
+	font-weight: 900;
+	font-size: 1.5rem;
 	color: #86748D;
 }
 
 #artist, #album_name {
 	color: #BEB7C0;
+}
+
+#artist {
+	font-weight: 500;
+	font-size: 1.2rem;
 }
 
 #user_functions {
@@ -110,15 +137,15 @@ button {
  Player
 *******/
 
-.btn-shadow {
-	background: linear-gradient(159.16deg, #917CE4 26.46%, rgba(63, 45, 137, 0.5) 116.55%);
-	box-shadow: inset 10px 10px 15px rgba(255, 255, 255, 0.2);
-	filter: drop-shadow(4px 6px 4px rgba(145, 124, 228, 1));
-}
-
 #player {
-	max-width: 55rem;
-	max-height: 20rem;
+	--height: 16rem;
+	width: 55rem;
+	height: var(--height);
+	background-color: #f7f7f7;
+	z-index: 1;
+	position: absolute;
+	top: calc(50vh - var(--height)/2);
+	right: 2rem;
 }
 
 .player-container {
@@ -127,12 +154,21 @@ button {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	position: relative;
+	left: calc(2 * var(--spacing));
+	top: calc(0.5 * var(--spacing));
 }
 
 .controls {
 	display:flex;
 	justify-content: space-between;
 	width: 60%;
+}
+
+.btn-shadow {
+	background: linear-gradient(159.16deg, #917CE4 26.46%, rgba(63, 45, 137, 0.5) 116.55%);
+	box-shadow: inset 10px 10px 15px rgba(255, 255, 255, 0.2);
+	filter: drop-shadow(4px 6px 4px rgba(145, 124, 228, 1));
 }
 
 #play-pause {
@@ -146,8 +182,6 @@ button {
 }
 
 .controls__mid {
-	position: relative;
-	top: -1rem;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 1rem;
@@ -156,11 +190,17 @@ button {
 }
 
 .controls__left, .controls__right {
+	position: relative;
+	top: 2rem;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 1rem;
 }
 
+.controls__left button,
+.controls__right button {
+	background-color: #f7f7f7;
+}
 
 /******
  Seek
