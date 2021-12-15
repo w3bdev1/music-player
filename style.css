@@ -171,6 +171,14 @@ button {
 	filter: drop-shadow(4px 6px 4px rgba(145, 124, 228, 1));
 }
 
+.controls button:active {
+	scale: .96;
+}
+
+.controls button:hover {
+	cursor: pointer;
+}
+
 #play-pause {
 	height: 4rem;
 	width: 4rem;
