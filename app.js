@@ -14,19 +14,22 @@ let isPlaying = false;
 // Seek Setup
 seekSlider.value = 0
 
-audioEl.addEventListener('loadedmetadata', () => {
-	seekSlider.max = audioEl.duration
-	totalTimeStamp.innerText = secondsToMS(audioEl.duration)
-})
-
-audioEl.addEventListener('timeupdate', timeUpdateHandler)
-
 seekSlider.addEventListener('change', () => {
 	audioEl.currentTime = +seekSlider.value
 	if (!isPlaying) {
 		playHandler()
 	}	
 })
+
+
+// Audio Element Events
+audioEl.addEventListener('loadedmetadata', () => {
+	seekSlider.max = audioEl.duration
+	totalTimeStamp.innerText = secondsToMS(audioEl.duration)
+})
+
+audioEl.addEventListener('timeupdate', timeUpdateHandler)
+audioEl.addEventListener('ended', endHandler)
 
 // Play / Pause
 playPauseBtn.addEventListener('click', () => {
@@ -41,6 +44,7 @@ playPauseBtn.addEventListener('click', () => {
 forwardBtn.addEventListener('click', forwardHandler)
 backwardBtn.addEventListener('click', backwardHandler)
 
+
 // Event Handler
 function playHandler() {
 	isPlaying = true;
@@ -54,6 +58,12 @@ function pauseHandler() {
 	playerStateText.innerText = 'Paused'
 	playPauseImage.setAttribute('src', './icons/ic_play.svg')
 	audioEl.pause();
+}
+
+function endHandler() {
+	isPlaying = false;
+	playerStateText.innerText = 'Stopped'
+	playPauseImage.setAttribute('src', './icons/ic_play.svg')
 }
 
 function forwardHandler() {
